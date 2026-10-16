@@ -1,0 +1,111 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram id="system-architecture" name="System Architecture">
+    <mxGraphModel dx="2454" dy="2686" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1120" pageHeight="1320" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JgOkls2y9iW3K7NoNmu8-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="1410" width="1120" y="-34" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=30;fontStyle=1;fontColor=#203044;" value="System Architecture and Data Flow" vertex="1">
+          <mxGeometry height="48" width="920" x="100" y="12" as="geometry" />
+        </mxCell>
+        <mxCell id="user" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#0e8088;strokeWidth=2.5;fillColor=#b0e3e6;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=17;fontStyle=1" value="&lt;span&gt;User + Webcam&lt;/span&gt;&lt;br&gt;&lt;br&gt;USB2.0 HD UVC camera (/dev/video0)" vertex="1">
+          <mxGeometry height="133" width="398" x="30" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="config" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#36393d;strokeWidth=2.5;fillColor=#eeeeee;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=17;fontStyle=1" value="&lt;span&gt;config.py&lt;/span&gt;&lt;br&gt;&lt;br&gt;thresholds, cutoff time, file paths&lt;br&gt;(read by all modules)" vertex="1">
+          <mxGeometry height="133" width="398" x="640" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#10739e;strokeWidth=2.5;fillColor=#b1ddf0;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=17;fontStyle=1" value="&lt;span&gt;Streamlit UI&lt;/span&gt;&lt;br&gt;&lt;br&gt;Enroll | Attendance | Reports pages&lt;br&gt;Chrome at localhost:8501" vertex="1">
+          <mxGeometry height="133" width="398" x="30" y="303" as="geometry" />
+        </mxCell>
+        <mxCell id="validation" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#56517e;strokeWidth=2.5;fillColor=#d0cee2;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=17;fontStyle=1" value="&lt;span&gt;Validation Module&lt;/span&gt;&lt;br&gt;&lt;br&gt;validation.py&lt;br&gt;image decode, blur, brightness,&lt;br&gt;exactly one face" vertex="1">
+          <mxGeometry height="133" width="398" x="30" y="511" as="geometry" />
+        </mxCell>
+        <mxCell id="vision" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#56517e;strokeWidth=2.5;fillColor=#d0cee2;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=17;fontStyle=1" value="&lt;span&gt;Vision Module&lt;/span&gt;&lt;br&gt;&lt;br&gt;vision.py&lt;br&gt;face_recognition (dlib HOG + ResNet)" vertex="1">
+          <mxGeometry height="133" width="398" x="30" y="718" as="geometry" />
+        </mxCell>
+        <mxCell id="rules" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#56517e;strokeWidth=2.5;fillColor=#d0cee2;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=17;fontStyle=1" value="&lt;span&gt;Rules Engine&lt;/span&gt;&lt;br&gt;&lt;br&gt;rules.py&lt;br&gt;threshold, duplicate window,&lt;br&gt;Present / Late" vertex="1">
+          <mxGeometry height="133" width="398" x="30" y="925" as="geometry" />
+        </mxCell>
+        <mxCell id="dashboard" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#23445d;strokeWidth=2.5;fillColor=#bac8d3;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=17;fontStyle=1" value="&lt;span&gt;Dashboard + CSV Export&lt;/span&gt;&lt;br&gt;&lt;br&gt;table, chart, attendance_YYYY-MM-DD.csv" vertex="1">
+          <mxGeometry height="133" width="398" x="640" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="reports" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#23445d;strokeWidth=2.5;fillColor=#bac8d3;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=17;fontStyle=1" value="&lt;span&gt;Reports Module&lt;/span&gt;&lt;br&gt;&lt;br&gt;reports.py&lt;br&gt;pandas summaries, Absent list" vertex="1">
+          <mxGeometry height="133" width="398" x="640" y="718" as="geometry" />
+        </mxCell>
+        <mxCell id="db_layer" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#b46504;strokeWidth=2.5;fillColor=#fad7ac;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=17;fontStyle=1" value="&lt;span&gt;Database Layer&lt;/span&gt;&lt;br&gt;&lt;br&gt;db.py&lt;br&gt;only module that runs SQL" vertex="1">
+          <mxGeometry height="133" width="398" x="640" y="925" as="geometry" />
+        </mxCell>
+        <mxCell id="sqlite" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeColor=#b46504;strokeWidth=2.5;fillColor=#fad7ac;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=17;fontStyle=1" value="&lt;span&gt;SQLite Database&lt;/span&gt;&lt;br&gt;&lt;br&gt;attendance.db&lt;br&gt;persons | face_encodings | attendance" vertex="1">
+          <mxGeometry height="133" width="398" x="640" y="1132" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#465A73;strokeWidth=3;endArrow=block;endFill=1;fontFamily=Helvetica;fontSize=16;fontStyle=2;fontColor=#203044;labelBackgroundColor=#FFFFFF;" target="ui" value="JPEG frame">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="ui" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#465A73;strokeWidth=3;endArrow=block;endFill=1;fontFamily=Helvetica;fontSize=16;fontStyle=2;fontColor=#203044;labelBackgroundColor=#FFFFFF;" target="validation" value="image bytes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="validation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#465A73;strokeWidth=3;endArrow=block;endFill=1;fontFamily=Helvetica;fontSize=16;fontStyle=2;fontColor=#203044;labelBackgroundColor=#FFFFFF;" target="vision" value="RGB array (H, W, 3)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="vision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#465A73;strokeWidth=3;endArrow=block;endFill=1;fontFamily=Helvetica;fontSize=16;fontStyle=2;fontColor=#203044;labelBackgroundColor=#FFFFFF;" target="rules" value="128-d encoding">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="rules" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#465A73;strokeWidth=3;startArrow=block;startFill=1;endArrow=block;endFill=1;fontFamily=Helvetica;fontSize=16;fontStyle=2;fontColor=#203044;labelBackgroundColor=#FFFFFF;" target="db_layer" value="SQL queries / records">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="sqlite" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#465A73;strokeWidth=3;startArrow=block;startFill=1;endArrow=block;endFill=1;fontFamily=Helvetica;fontSize=16;fontStyle=2;fontColor=#203044;labelBackgroundColor=#FFFFFF;" target="db_layer" value="sqlite3 file I/O">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="db_layer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#465A73;strokeWidth=3;endArrow=block;endFill=1;fontFamily=Helvetica;fontSize=16;fontStyle=2;fontColor=#203044;labelBackgroundColor=#FFFFFF;" target="reports" value="rows">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="reports" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#465A73;strokeWidth=3;endArrow=block;endFill=1;fontFamily=Helvetica;fontSize=16;fontStyle=2;fontColor=#203044;labelBackgroundColor=#FFFFFF;" target="dashboard" value="DataFrame summary">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="dashboard" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#465A73;strokeWidth=3;endArrow=block;endFill=1;fontFamily=Arial;fontSize=16;fontStyle=2;fontColor=#203044;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="ui" value="output">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="839" y="450" />
+              <mxPoint x="839" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="return_label" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=#FFFFFF;fontFamily=Helvetica;fontSize=16;fontStyle=2;fontColor=#203044;" value="results shown to user" vertex="1">
+          <mxGeometry height="30" width="250" x="590" y="319" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_box_0" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0e8088;strokeWidth=1.8;fillColor=#b0e3e6;" value="" vertex="1">
+          <mxGeometry height="24" width="35" x="70" y="1322" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_text_0" parent="1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#111111;fontStyle=1" value="Input" vertex="1">
+          <mxGeometry height="28" width="130" x="112" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_box_1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#10739e;strokeWidth=1.8;fillColor=#b1ddf0;" value="" vertex="1">
+          <mxGeometry height="24" width="35" x="271" y="1322" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_text_1" parent="1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#111111;fontStyle=1" value="Interface" vertex="1">
+          <mxGeometry height="28" width="130" x="314" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_box_2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#56517e;strokeWidth=1.8;fillColor=#d0cee2;" value="" vertex="1">
+          <mxGeometry height="24" width="35" x="474" y="1322" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_text_2" parent="1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#111111;fontStyle=1" value="Processing" vertex="1">
+          <mxGeometry height="28" width="130" x="517" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_box_3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#b46504;strokeWidth=1.8;fillColor=#fad7ac;" value="" vertex="1">
+          <mxGeometry height="24" width="35" x="677" y="1322" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_text_3" parent="1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#111111;fontStyle=1" value="Data storage" vertex="1">
+          <mxGeometry height="28" width="130" x="720" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_box_4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#23445d;strokeWidth=1.8;fillColor=#bac8d3;" value="" vertex="1">
+          <mxGeometry height="24" width="35" x="879" y="1322" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_text_4" parent="1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#111111;fontStyle=1" value="Output" vertex="1">
+          <mxGeometry height="28" width="130" x="922" y="1320" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
