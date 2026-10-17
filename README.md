@@ -8,7 +8,7 @@ Built with Python 3.12, Streamlit, OpenCV, dlib / `face_recognition`, SQLite and
 
 | Your system | Guide | Status |
 | --- | --- | --- |
-| Linux (Mint / Ubuntu) | [Linux setup guide](/os/README_Linux.md) | Developed and tested here |
+| Linux (Mint / Ubuntu) | [Linux setup guide](/07_os/README_Linux.md) | Developed and tested here |
 | Windows 10 / 11 | [Windows setup guide](/07_os/README_Windows.md) | Standard steps, not yet tested |
 | macOS (Apple Silicon or Intel) | [macOS setup guide](/07_os/README_macOS.md) | Standard steps, not yet tested |
 
