@@ -8,9 +8,9 @@ Built with Python 3.12, Streamlit, OpenCV, dlib / `face_recognition`, SQLite and
 
 | Your system | Guide | Status |
 | --- | --- | --- |
-| Linux (Mint / Ubuntu) | [Linux setup guide](README_Linux.md) | Developed and tested here |
-| Windows 10 / 11 | [Windows setup guide](README_Windows.md) | Standard steps, not yet tested |
-| macOS (Apple Silicon or Intel) | [macOS setup guide](README_macOS.md) | Standard steps, not yet tested |
+| Linux (Mint / Ubuntu) | [Linux setup guide](/os/README_Linux.md) | Developed and tested here |
+| Windows 10 / 11 | [Windows setup guide](/os/README_Windows.md) | Standard steps, not yet tested |
+| macOS (Apple Silicon or Intel) | [macOS setup guide](/os/README_macOS.md) | Standard steps, not yet tested |
 
 The code is identical on all three systems. Only the installation steps differ (mainly how dlib gets compiled). Once the app is running, come back to this page for [Using the app](#using-the-app).
 
