@@ -1,4 +1,4 @@
-#C reating the launch script in Linux Mint:
+# Creating the launch script in Linux Mint:
 
 -------------------------------------------------------------------------------------------
 
