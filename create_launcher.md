@@ -1,8 +1,7 @@
-#Creating the launch script in Linux Mint:
+#C reating the launch script in Linux Mint:
 
 -------------------------------------------------------------------------------------------
-cat > launch.sh <<'EOF'
-#!/usr/bin/env bash
+
 # Starts the attendance server, opens it in an app-style window, stops the server on close.
 cd "$(dirname "$(readlink -f "$0")")" || exit 1
 source .venv/bin/activate
