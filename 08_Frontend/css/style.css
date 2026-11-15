@@ -1,0 +1,30 @@
+/* FaceTrack design tokens and global styles */
+:root {
+  --ink: #17233b;
+  --muted: #7d899e;
+  --muted-dark: #59677e;
+  --line: #e9edf3;
+  --surface: #ffffff;
+  --canvas: #f6f8fb;
+  --primary: #4568e8;
+  --primary-dark: #3454ce;
+  --primary-soft: #edf1ff;
+  --green: #159b72;
+  --amber: #d99424;
+  --rose: #dc6472;
+  --shadow: 0 8px 26px rgba(31, 48, 79, .045);
+  font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { min-width: 320px; background: var(--canvas); }
+body { margin: 0; color: var(--ink); background: var(--canvas); font-size: 14px; line-height: 1.5; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3, .brand-copy strong { font-family: "Manrope", "DM Sans", sans-serif; }
+h1 { margin-bottom: 7px; font-size: clamp(25px, 2.5vw, 31px); line-height: 1.2; letter-spacing: -.8px; font-weight: 800; }
+h2 { margin: 0; font-size: 16px; line-height: 1.35; font-weight: 800; letter-spacing: -.25px; }
+p { color: var(--muted); }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid rgba(69,104,232,.22); outline-offset: 2px; }
+::selection { background: #dfe6ff; color: var(--ink); }
