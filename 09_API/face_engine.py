@@ -10,6 +10,10 @@ from pathlib import Path
 
 import numpy as np
 
+from datetime import datetime
+from typing import Optional
+
+
 API_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = API_DIR.parent
 SOURCE_DIR = PROJECT_ROOT / "01_Source_Code"
@@ -128,3 +132,71 @@ def process_face_image(raw: bytes) -> np.ndarray:
         raise ValueError("The generated encoding has an invalid size.")
 
     return encoding
+
+
+
+
+
+
+
+
+def recognize_face(
+    encoding: np.ndarray,
+    known_encodings: list,
+    last_scan_iso: Optional[str] = None,
+    now: Optional[datetime] = None,
+):
+    """
+    Match a face against enrolled encodings and apply
+    the original attendance rules.
+    """
+
+    _load_original_engine()
+
+    if now is None:
+        now = datetime.now()
+
+    # Load original rules.py using the original configuration.
+    global _original_rules
+
+    if _original_rules is None:
+        previous_config = sys.modules.get("config")
+
+        try:
+            sys.modules["config"] = _original_config
+
+            _original_rules = _load_module(
+                "_facetrack_source_rules",
+                SOURCE_DIR / "rules.py",
+            )
+        finally:
+            if previous_config is None:
+                sys.modules.pop("config", None)
+            else:
+                sys.modules["config"] = previous_config
+
+    person_id, distance = _original_vision.best_match(
+        encoding,
+        known_encodings,
+    )
+
+    decision = _original_rules.decide(
+        person_id=person_id,
+        distance=distance,
+        last_scan_iso=last_scan_iso,
+        now=now,
+    )
+
+    return {
+        "outcome": decision.outcome,
+        "person_id": decision.person_id,
+        "distance": decision.distance,
+        "previous_scan": (
+            decision.previous_scan.isoformat()
+            if decision.previous_scan
+            else None
+        ),
+    }
+
+
+_original_rules = None
