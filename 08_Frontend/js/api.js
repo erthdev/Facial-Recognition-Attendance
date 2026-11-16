@@ -11,15 +11,18 @@
   async function request(path, options = {}) {
     let response;
 
+    const headers = { ...options.headers };
+    const isFormData = options.body instanceof FormData;
+
+    // Let the browser generate the multipart Content-Type boundary.
+    if (options.body && !isFormData && !headers['Content-Type']) {
+      headers['Content-Type'] = 'application/json';
+    }
+
     try {
       response = await fetch(`${baseURL}${path}`, {
         ...options,
-        headers: {
-          ...(options.body
-            ? { 'Content-Type': 'application/json' }
-            : {}),
-          ...options.headers
-        }
+        headers
       });
     } catch (error) {
       throw new Error(
@@ -62,10 +65,12 @@
     baseURL,
     request,
 
+    // Dashboard
     getDashboard() {
       return request('/dashboard');
     },
 
+    // Student management
     getStudents() {
       return request('/students');
     },
@@ -77,10 +82,35 @@
       });
     },
 
+    // Biometric enrollment status
+    getBiometricStatus(personId) {
+      return request(`/students/${personId}/biometric-status`);
+    },
+
+    // Upload facial image samples
+    enrollFace(personId, images) {
+      const formData = new FormData();
+
+      images.forEach((image, index) => {
+        formData.append(
+          'images',
+          image,
+          `face-sample-${index + 1}.jpg`
+        );
+      });
+
+      return request(`/students/${personId}/enroll-face`, {
+        method: 'POST',
+        body: formData
+      });
+    },
+
+    // Attendance
     getAttendance(filters = {}) {
       return request(`/attendance${queryString(filters)}`);
     },
 
+    // Reports
     getReports(filters = {}) {
       return request(`/reports${queryString(filters)}`);
     }

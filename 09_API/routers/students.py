@@ -14,21 +14,29 @@ router = APIRouter(
 )
 
 
+
 @router.get("")
 def get_students():
-    with get_db() as connection:
+    from face_engine import get_sample_limits
 
+    min_samples, _ = get_sample_limits()
+
+    with get_db() as connection:
         rows = connection.execute("""
             SELECT
-                person_id,
-                student_no,
-                full_name,
-                section,
-                consent_given,
-                consent_date,
-                created_at
-            FROM persons
-            ORDER BY full_name ASC
+                p.person_id,
+                p.student_no,
+                p.full_name,
+                p.section,
+                p.consent_given,
+                p.consent_date,
+                p.created_at,
+                COUNT(e.encoding_id) AS biometric_samples
+            FROM persons p
+            LEFT JOIN face_encodings e
+                ON e.person_id = p.person_id
+            GROUP BY p.person_id
+            ORDER BY p.full_name ASC
         """).fetchall()
 
         return [
@@ -40,7 +48,10 @@ def get_students():
                 "consent_given": bool(row["consent_given"]),
                 "consent_date": row["consent_date"],
                 "created_at": row["created_at"],
-                "biometric_enrolled": False
+                "biometric_samples": row["biometric_samples"],
+                "biometric_enrolled": (
+                    row["biometric_samples"] >= min_samples
+                ),
             }
             for row in rows
         ]

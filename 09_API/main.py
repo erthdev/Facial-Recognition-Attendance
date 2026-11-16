@@ -5,7 +5,8 @@ from routers import (
     dashboard,
     students,
     attendance,
-    reports
+    reports,
+    enrollment,
 )
 
 
@@ -34,7 +35,7 @@ app.include_router(dashboard.router)
 app.include_router(students.router)
 app.include_router(attendance.router)
 app.include_router(reports.router)
-
+app.include_router(enrollment.router)
 
 @app.get("/")
 def root():
