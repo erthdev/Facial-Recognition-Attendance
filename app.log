@@ -1,9 +1,0 @@
-
-2026-11-15 11:40:19,559 WARNING attendance.db: Skipping encoding_id=2 (person_id=1): Corrupt encoding: expected 1024 bytes
-2026-11-15 11:40:19,563 ERROR attendance.db: Database file not found: /tmp/pytest-of-herhtlecassidymvaldez/pytest-0/test_T13_database_missing0/test.db
-2026-11-15 11:40:19,770 ERROR attendance.db: SQLite error: Execution failed on sql 'SELECT p.person_id, p.student_no, p.full_name, p.section,
-                    COUNT(e.encoding_id) AS samples
-             FROM persons p LEFT JOIN face_encodings e ON e.person_id = p.person_id
-             GROUP BY p.person_id ORDER BY p.full_name': database is locked
-2026-11-15 11:40:20,098 INFO attendance.validation: Quality rejected: brightness=9.5 sharpness=377.6
-2026-11-15 11:40:20,110 INFO attendance.validation: Quality rejected: brightness=129.5 sharpness=0.3
