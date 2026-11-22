@@ -1,0 +1,141 @@
+# ==========================================
+# PYTHON
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+wheels/
+*.egg-info/
+.eggs/
+
+# ==========================================
+# VIRTUAL ENVIRONMENTS
+# ==========================================
+venv/
+.venv/
+env/
+ENV/
+.python-version
+
+# ==========================================
+# ENVIRONMENT VARIABLES & SECRETS
+# ==========================================
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ==========================================
+# APPLICATION LOGS
+# ==========================================
+*.log
+logs/
+log/
+*.log.*
+
+# ==========================================
+# DATABASES
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.sqlite-journal
+
+# ==========================================
+# FACIAL RECOGNITION / BIOMETRIC DATA
+# ==========================================
+face_data/
+face_encodings/
+face_samples/
+biometric_data/
+enrolled_faces/
+known_faces/
+*.npy
+*.npz
+
+# ==========================================
+# UPLOADED / GENERATED FILES
+# ==========================================
+uploads/
+temp/
+tmp/
+*.tmp
+*.bak
+*.cache
+
+# ==========================================
+# TESTING & COVERAGE
+# ==========================================
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+test-results/
+
+# ==========================================
+# TYPE CHECKING & LINTING
+# ==========================================
+.mypy_cache/
+.dmypy.json
+.pyre/
+.ruff_cache/
+.pytype/
+
+# ==========================================
+# JUPYTER
+# ==========================================
+.ipynb_checkpoints/
+
+# ==========================================
+# FRONTEND DEPENDENCIES
+# ==========================================
+node_modules/
+bower_components/
+
+# ==========================================
+# FRONTEND BUILD OUTPUT
+# ==========================================
+dist/
+build/
+.next/
+.nuxt/
+.parcel-cache/
+.vite/
+
+# ==========================================
+# IDE / EDITORS
+# ==========================================
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# ==========================================
+# OPERATING SYSTEM FILES
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# LOCAL DEVELOPMENT
+# ==========================================
+*.swp
+*.swo
+*~
